@@ -1,11 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Subject;
 use Illuminate\Http\Request;
 
 class SubjectsController extends Controller
 {
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +22,8 @@ class SubjectsController extends Controller
      */
     public function index()
     {
-        //
+        $subjects = Subject::orderBy('subject_name', 'asc')->paginate(6);
+        return view('subject.index')->with('subjects', $subjects);
     }
 
     /**
@@ -23,7 +33,7 @@ class SubjectsController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -34,7 +44,22 @@ class SubjectsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'subject_name' => 'required',
+            'room_capacity' => 'required',
+            'room_no' => 'required',
+            'class_schedule' => 'required'
+  
+      ]);
+
+         $subject = new Subject;
+         $subject->subject_name = $request->input('subject_name');
+         $subject->room_capacity = $request->input('room_capacity');
+         $subject->room_no = $request->input('room_no');
+         $subject->class_schedule = $request->input('class_schedule');   
+         $subject->save();
+
+         return redirect('/subject')->with('success', 'Successfully Added');
     }
 
     /**
@@ -79,6 +104,14 @@ class SubjectsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $management = Management::find($id);
+
+
+        if(auth()->user()->id !==$management->user_id)
+        {
+            return redirect('/posts')->with('error', 'Unauthorized Access');    
+        }
+        $post->delete();
+        return redirect('/posts')->with('success', 'Post Deleted');
     }
 }

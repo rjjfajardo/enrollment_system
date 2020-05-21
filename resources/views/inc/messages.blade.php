@@ -5,12 +5,10 @@
             {{$error}}
         </div>
     @endforeach
+    @else
+    <div class="alert-success" >
+        {{session('success')}}
+    </div>
 @endif
 
 
-{{ $session ?? '' }}
-
-    <div class="alert-success"">
-        {{session('success')}}
-    </div>
- 

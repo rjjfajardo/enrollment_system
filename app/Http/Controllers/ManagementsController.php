@@ -24,7 +24,7 @@ class ManagementsController extends Controller
      */
     public function index()
     {
-        $managements = Management::orderBy('created_at', 'desc')->paginate(6);
+        $managements = Management::orderBy('created_at', 'desc')->paginate(10);
         return view('management.index')->with('managements', $managements);
     }
 

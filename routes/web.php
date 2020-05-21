@@ -17,12 +17,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//student management page
 Route::resource('management', 'ManagementsController');
-Route::patch('/management', 'ManagementsController@update')->name('management.update');
 
+//subject page
 Route::resource('subject', 'SubjectsController');
+
+//enrollment page
 Route::resource('enrollment', 'EnrollmentsController');
 
 Auth::routes();
 
-Route::get('/dashboard', 'HomeController@index');
+Route::get('/home', 'HomeController@index');

@@ -1,26 +1,27 @@
 @extends('layouts.app')
 
+
 @section('content')
+
     <div class="container"> 
         <div class="row justify-content-center">
-                <div class="col-md-8">
                     <div id="ModalLoginForm" class="modal fade">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title">Student Information</h1>
+                                    <h1 class="modal-title">Subject Information</h1>
                                 </div>
                                 <div class="modal-body">
-                                <form action="/management" method="post">
+                                <form action="/subject" method="post">
                                         @csrf
                                         
                                         <div class="form-group row">
-                                            <label for="id_no" class="col-md-4 col-form-label text-md-right">{{ __('ID Number') }}</label>
+                                            <label for="subject_name" class="col-md-4 col-form-label text-md-right">{{ __('Subject Name') }}</label>
                 
                                             <div class="col-md-6">
-                                                <input id="id_no" type="text" class="form-control @error('id_no') is-invalid @enderror" name="id_no" placeholder="Enter todays' year" value="{{ old('id_no') }}" autocomplete="id_no" autofocus>
+                                                <input id="subject_name" type="text" class="form-control @error('subject_name') is-invalid @enderror" name="subject_name" placeholder="Name" value="{{ old('subject_name') }}" autocomplete="subject_name" autofocus>
                 
-                                                @error('id_no')
+                                                @error('subject_name')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -28,12 +29,12 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="first_name" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
+                                            <label for="room_capacity" class="col-md-4 col-form-label text-md-right">{{ __('Room Capacity') }}</label>
                 
                                             <div class="col-md-6">
-                                                <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" placeholder="First Name" value="{{ old('first_name') }}"  autocomplete="first_name" autofocus>
+                                                <input id="room_capacity" type="text" class="form-control @error('room_capacity') is-invalid @enderror" name="room_capacity" placeholder="Capacity" value="{{ old('room_capacity') }}"  autocomplete="room_capacity" autofocus>
                 
-                                                @error('first_name')
+                                                @error('room_capacity')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -41,12 +42,12 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="last_name" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
+                                            <label for="room_no" class="col-md-4 col-form-label text-md-right">{{ __('Room No') }}</label>
                 
                                             <div class="col-md-6">
-                                                <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" placeholder="Last Name" value="{{ old('last_name') }}"  autocomplete="last_name" autofocus>
+                                                <input id="room_no" type="text" class="form-control @error('room_no') is-invalid @enderror" name="room_no" placeholder="Room No" value="{{ old('room_no') }}"  autocomplete="room_no" autofocus>
                 
-                                                @error('last_name')
+                                                @error('room_no')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -54,25 +55,12 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="dob" class="col-md-4 col-form-label text-md-right">{{ __('DOB') }}</label>
+                                            <label for="class_schedule" class="col-md-4 col-form-label text-md-right">{{ __('Schedule') }}</label>
                 
                                             <div class="col-md-6">
-                                                <input id="dob" type="text" class="form-control @error('dob') is-invalid @enderror" name="dob" placeholder="MM/DD/YY" value="{{ old('dob') }}"  autocomplete="dob" autofocus>
+                                                <input id="class_schedule" type="text" class="form-control @error('class_schedule') is-invalid @enderror" name="class_schedule" placeholder="Schedule" value="{{ old('class_schedule') }}"  autocomplete="class_schedule" autofocus>
                 
-                                                @error('dob')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="course" class="col-md-4 col-form-label text-md-right">{{ __('Course') }}</label>
-                
-                                            <div class="col-md-6">
-                                                <input id="course" type="text" class="form-control @error('course') is-invalid @enderror" name="course" placeholder="Course" value="{{ old('course') }}"  autocomplete="course" autofocus>
-                
-                                                @error('course')
+                                                @error('class_schedule')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -82,7 +70,7 @@
                                         <div class="form-group row mb-0">
                                             <div class="col-md-6 offset-md-4">
                                                 <button type="submit" class="btn btn-primary">
-                                                    {{ __('Register') }}
+                                                    {{ __('Add Course') }}
                                                 </button>
                                             
                                     
@@ -96,45 +84,39 @@
             </div>
         </div>
 
-        
-
-    
-
-
 
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalLoginForm">
-            +Add Student
+            +Add Course Subject
         </button>
         <br><br>
-        @if(count($managements) > 0 )
+        @if(count($subjects) > 0 )
         <table class="table table-hover"> 
             <tr>
                 <thead class="thead-dark">
-                <th>ID#</th>
-                <th>Student Name</th>
-                <th>Date of Birth</th>
-                <th>Course</th>
+                <th>Subject Name</th>
+                <th>Room Capacity</th>
+                <th>Room #</th>
+                <th>Course Schedule</th>
                 <th>Action</th>
             </thead>
             </tr>
-            @foreach ($managements as $management)
+            @foreach ($subjects as $subject)
             <tr>
-            <td>{{$management->id_no}}{{$management->id}}</td>
-            <td>{{$management->first_name}}  {{$management->last_name}}</td>
-            <td>{{$management->dob}}</td>
-            <td>{{$management->course}}</td>
+            <td>{{$subject->subject_name}}</td>
+            <td>{{$subject->room_capacity}}</td>
+            <td>{{$subject->room_no}}</td>
+            <td>{{$subject->class_schedule}}</td>
             <td><a data-toggle="modal" data-target="#updateModal" class="btn btn-success">Edit</a></td>
             </tr>
             @endforeach
         </table>
 
         <div class="pagination justify-content-center">
-            {!! $managements->render()!!}    
-           
+            {{ $subjects->links()}}
             </div>
 
         @else
                 <p>No Student Record</p>
             @endif
-            <br><br><br>
+
 @endsection
