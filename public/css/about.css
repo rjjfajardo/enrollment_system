@@ -1,0 +1,188 @@
+
+
+html, body {
+  background-color: #55efc4;
+  color: #636b6f;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 200;
+  height: 100vh;
+  margin: 0;
+}
+
+.banner-content{
+  background-color: #ffff;
+}
+
+
+
+
+  /* Banner Area */
+
+
+.banner-content{
+    padding-bottom: 7rem;
+    padding-top: 5rem;  
+    background-image: url(img/aboutus_asset.jpeg);
+}
+
+
+.site-main .site-banner .site-title h1{
+    font-size: 2rem;
+    font-family: SF Pro Display;
+    color: white;
+}
+
+.site-main .site-banner .banner-image > img{
+    width: 90rem;
+}
+
+
+
+.site-main .site-banner .container .row .get_started:hover{
+  background: white;
+  box-shadow: 0px 8px 16px #6ACBF3;
+  border-radius: 10px;
+  border: 0px;
+  margin-left: 0;
+  border: 1px;
+  border-style: solid;
+  border-color: #2694E0;
+  color: #2694E0;
+}
+
+
+  /* Strategy Area */
+
+  
+.strategy-content{
+  padding-bottom: 7rem;
+  padding-top: 7rem;
+  margin-bottom: 5rem;
+}
+
+.strategy-content .strategy-title .label{
+  font-size: 14px;
+  color: #2694E0;
+  font-family: SF Pro Display;
+}
+
+.strategy-content .strategy-title p{
+  color: grey;
+  font-family: SF Pro Display;
+}
+
+.strategy-content .strategy-title h2{
+  font-family: SF Pro Display;
+}
+
+.strategy-content .strategy-card{
+  margin-top: 5rem;
+}
+
+.strategy-content .strategy-card h4{
+  margin-top: 3rem;
+  font-family: SF Pro Display;
+}
+
+.strategy-content .strategy-card p{
+  color: grey;
+  font-family: SF Pro Display;
+}
+
+/* Team Area */
+.team-content{
+    padding-bottom: 7rem;
+    padding-top: 7rem;
+}
+
+.team-content .team-title .label{
+  font-family: SF Pro Display;
+  font-size: 14px;
+  color: #2694E0;
+}
+
+.team-content .team-title h2{
+  font-family: SF Pro Display;
+}
+
+.team-content .team-title p{
+  font-family: SF Pro Display;
+  color: grey;
+}
+
+.team{
+  margin-top: 2rem;
+}
+
+.team-img{
+  margin-bottom: 1.5rem;
+}
+
+.carousel-control-prev-icon {
+  background-image: url(/img/back_ic.svg);
+  width: 28px;
+  height: 28px;
+}
+
+.carousel-control-next-icon{
+  background-image: url(/img/forward_ic.svg);
+  width: 28px;
+  height: 28px;
+}
+
+.team .team-name{
+  font-family: SF Pro Display;
+  color: grey;
+}
+
+.team .team-pos{
+  font-family: SF Pro Display;
+  font-size: 14px;
+  color: #2694E0;
+}
+
+.last-cta{
+  background: #2694E0;
+  border-radius: 8px;
+}
+
+/* Footer Area */
+
+footer{
+  background: #2694E0;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+
+.footer-link{
+  list-style: none;
+  display: flex;
+  font-family: SF Pro Display;
+}
+
+.footer-link li{
+  margin-left: 1rem;
+}
+
+.footer-link li a{
+  color: white;
+}
+
+.social-link a{
+  margin-left: 1rem;
+}
+
+.col-12.col-lg-6.text-center.text-md-left {
+  margin-top: 3rem;
+  font-family: SF Pro Display;
+  font-size: 18px;
+  color: white;
+}
+
+.col-12.col-lg-6.text-center.text-md-right {
+  margin-top: 3rem;
+  font-family: SF Pro Display;
+  color: white;
+}
+
